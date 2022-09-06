@@ -1,6 +1,6 @@
 from os.path import dirname, join
 
-from setuptools import find_packages, setup
+from setuptools import setup
 
 from office_word_count import __versionstr__
 
@@ -15,7 +15,7 @@ AUTHOR = "bebe3"
 AUTHOR_EMAIL = "i.masashi0323@gmail.com"
 URL = "https://github.com/bebe3/office-word-count"
 LICENSE = "MIT"
-DESCRIPTION = "Word count tool like MS Word"
+DESCRIPTION = "Word count tool like MS Office Word"
 LONG_DESCRIPTION_CONTENT_TYPE = "text/markdown"
 PACKAGES = [
     "office_word_count",
