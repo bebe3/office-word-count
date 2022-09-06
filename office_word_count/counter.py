@@ -8,6 +8,9 @@ class Counter:
     def __init__(self, text: str):
         self.text: Final[Text] = Text(text)
 
+    def __repr__(self):
+        return f"Counter(text='{self.text.value}')"
+
     def count(self) -> Statistics:
         return Statistics(
             words=self.count_words(),
