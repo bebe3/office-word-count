@@ -1,4 +1,5 @@
 import pytest
+
 from office_word_count.text import Text
 
 
@@ -54,10 +55,26 @@ def test_text_break2space(text):
     [
         ("あア亜Ａ", ""),
         ("abcABC", "abcABC"),
+        ("abc ABC", "abc ABC"),
+        ("a啊e", "a e"),
+        ("啊ae", "ae"),
     ],
 )
 def test_text_no_asian(text, expected):
     _text = Text(text).no_asian()
+    assert _text.value == expected
+
+
+@pytest.mark.parametrize(
+    ("text", "expected"),
+    [
+        ("あア亜Ａ", "あア亜Ａ"),
+        ("abcABC", ""),
+        ("a啊e", "啊"),
+    ],
+)
+def test_text_only_asian(text, expected):
+    _text = Text(text).only_asian()
     assert _text.value == expected
 
 

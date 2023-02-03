@@ -39,7 +39,7 @@ class Text:
         return Text(SPACES.sub("", self.value))
 
     def no_asian(self):
-        return Text(ASIANS.sub(" ", self.value))
+        return Text(ASIANS.sub(" ", self.value).strip())
 
     def only_asian(self):
         return Text("".join(ASIANS.findall(self.value)))
