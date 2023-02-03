@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import Final
 
 import regex
@@ -15,10 +17,12 @@ class Text:
     def __repr__(self) -> str:
         return f"Text(value='{self.value}')"
 
-    def __add__(self, other):
+    def __add__(self, other: Text) -> Text:
         return Text(self.value + other.value)
 
-    def __eq__(self, other):
+    def __eq__(self, other: object) -> bool:
+        if not isinstance(other, Text):
+            return NotImplemented
         return self.value == other.value
 
     @property
